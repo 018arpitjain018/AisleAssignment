@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet, Platform } from 'react-native';
 
 import AppText from './Text';
 import LinearGradient from 'react-native-linear-gradient';
@@ -12,6 +12,7 @@ class Card extends Component {
     render() {
         const props = this.props;
         const name = this.props.hidden ? props.name : `${props.name}, ${props.age}`
+        const blurRadius = Platform.OS === 'ios' ? 10 : 3
 
         return (
             <View style={styles.container}>
@@ -25,7 +26,7 @@ class Card extends Component {
                     source={props.image}
                     resizeMode='cover' 
                     resizeMethod='scale'
-                    blurRadius={props.hidden ? 15 : 0}
+                    blurRadius={props.hidden ? blurRadius : 0}
                 />
 
                 <LinearGradient style={styles.description} colors={['rgba(0, 0, 0, 0.00001)', 'rgba(0, 0, 0, 0.7)']} useAngle angle={180} start={{ x: 0, y: 0 }} end={{ x: 0, y: 1 }}>

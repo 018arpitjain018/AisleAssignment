@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, ScrollView, View, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, ScrollView, View, StatusBar, StyleSheet } from 'react-native';
 
 import AppText from '../Components/Text';
 import Card from '../Components/Card';
@@ -13,6 +13,7 @@ class Discover extends Component {
     render() {
         return (
             <SafeAreaView style={styles.container}>
+                <StatusBar backgroundColor="#fff" barStyle='dark-content' />
                 <ScrollView style={{ flex: 1, paddingHorizontal: 20 }}>
                     <View style={styles.header}>
                         <AppText heading={true}>Notes</AppText>
